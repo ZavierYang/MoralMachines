@@ -101,8 +101,61 @@ This class holds the main method and manages your program execution. It takes ca
 
 [Go To Top](#moralmachines)
 ## 2. Class ScenarioGenerator.java
+This class is used to create a variety of scenarios. To guarantee a balanced set of scenarios, it is crucial to randomize as many elements as possible, including the number and characteristics of persons and animals involved in each scenario as well as the scenario itself.
+
+The following methods:
+* the empty constructor ScenarioGenerator(): this constructor should set the seed to a truly random number
+* the constructor ScenarioGenerator(long seed): this constructor sets the seed with a predefined value
+* the constructor ScenarioGenerator(long seed, int passengerCountMinimum, int passengerCountMaximum, int pedestrianCountMinimum, int pedestrianCountMaximum): this constructor  sets
+the seed as well as the minimum and maximum number for both passengers and pedestrians with predefined values
+* the public method setPassengerCountMin(int min): sets the minimum number of car passengers for each scenario
+* the public method setPassengerCountMax(int max): sets the maximum number of car passengers for each scenario
+* the public method setPedestrianCountMin(int min): sets the minimum number of pedestrians for each scenario
+* the public method setPedestrianCountMax(int max): sets the maximum number of pedestrians for each scenario
+* the public method getRandomPerson() which returns a newly created instance of Person with random age, gender, bodyType, profession, and state of pregnancy
+* the public method getRandomAnimal() which returns a newly created instance of Animal with random age, gender, bodyType, species, and whether it is a pet or not
+* the public method generate() which returns a newly created instance of Scenario containing a random number of passengers and pedestrians with random characteristics as well as   a randomly red or green light condition with you (the user) being either in the car, on the street, or absent.
+
 [Go To Top](#moralmachines)
 ## 3. Class Audit.java
+In this class, you will simulate a variety of scenarios and have your EthicalEngine decide on their outcomes.
+
+The class Audit.java should:
+* create a specific number of random scenarios
+* allow your EthicalEngine to decide on each outcome,
+* summarize the results for each characteristic in a so-called statistic of projected survival.
+
+The class Audit.java must have following methods:
+* the empty constructor Audit()
+* the public method run(int runs): runs the simulation by creating N = runs scenarios and running each scenario through the EthicalEngine using its decide(Scenario scenario)       method. For each scenario you need to save the outcome and add the result to your statistic
+* the public method setAuditType(String name): sets the name of the audit type. For example: *Algorithm* for an audit of your algorithm.
+* the public method getAuditType(): returns the name of the audit. Default should be Unspecified.
+* the public method toString(): returns a summary of the simulation in the format depicted below. If no simulation has been run, this method returns ”no audit available”.
+* the public method printStatistic(): prints the summary returned by the toString() method to the command-line.
+### 3.1 Store Statistic
+Statistic should list a number of factors, including:
+* age category
+* gender
+* body type
+* profession
+* pregnant
+* class type (person or animal)
+* species
+* pets
+* legality (red or green light)
+
+output format(pseudocode):
+
+    ======================================
+    # <auditType> Audit
+    ======================================
+    - % SAVED AFTER <int run> RUNS
+    <for each characterstic:>
+        <characterstic>: <survival ratio>
+    --
+    average age: <average>
+The list of characteristics must be sorted in **descending order of the survival ratio.** If tie, it is not nessary to order the Alphabet. The average age is calculated across all survivors of class Person (**animals are excluded**). Statistic must not list animals by gender, age, or body type.
+
 [Go To Top](#moralmachines)
 ## 4. Import a Configuration File
 [Go To Top](#moralmachines)
