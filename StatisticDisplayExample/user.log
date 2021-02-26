@@ -1,0 +1,26 @@
+======================================
+# User Audit
+======================================
+- % SAVED AFTER 3 RUNS
+overweight: 1.0
+criminal: 1.0
+adult: 0.6
+average: 0.5
+doctor: 0.5
+baby: 0.5
+pregnant: 0.5
+senior: 0.5
+green: 0.4
+person: 0.3
+female: 0.3
+male: 0.3
+red: 0.2
+athletic: 0.1
+ceo: 0.0
+child: 0.0
+animal: 0.0
+dog: 0.0
+pet: 0.0
+cat: 0.0
+bird: 0.0
+
