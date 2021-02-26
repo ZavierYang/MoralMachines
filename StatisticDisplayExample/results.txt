@@ -1,0 +1,52 @@
+======================================
+# Unspecified Audit
+======================================
+- % SAVED AFTER 1 RUNS
+rabbit: 1.0
+adult: 1.0
+unspecified: 1.0
+person: 1.0
+homeless: 1.0
+you: 1.0
+pig: 1.0
+student: 1.0
+bird: 0.5
+red: 0.5
+animal: 0.3
+cat: 0.0
+pet: 0.0
+ferret: 0.0
+
+======================================
+# Unspecified Audit
+======================================
+- % SAVED AFTER 5 RUNS
+dog: 1.0
+baby: 1.0
+average: 1.0
+you: 1.0
+ceo: 1.0
+doctor: 1.0
+criminal: 1.0
+pregnant: 1.0
+professor: 1.0
+adult: 0.7
+unspecified: 0.7
+male: 0.7
+red: 0.6
+person: 0.6
+pig: 0.6
+animal: 0.5
+pet: 0.5
+green: 0.5
+child: 0.5
+overweight: 0.5
+ferret: 0.5
+cat: 0.5
+female: 0.4
+athletic: 0.3
+bird: 0.2
+teacher: 0.0
+senior: 0.0
+engineer: 0.0
+
