@@ -28,7 +28,7 @@ The class further comprises two enumeration types:
 
 Age should be treated as a class invariant for which the following statement always yields true: age >= 0
 
-### 1.2. Class Person.java and Animal.java
+### Class Person.java and Animal.java
 This two classes inherite from Character.java.
 1. Person.java: scenarios are inhabited by people who exhibit a number of characteristics. In the scenarios, each person is either considered to be a passenger or a pedestrian. A person can be you. This class represents a human in the scenarios. On top of its parent methods, the class Person must at least include the following public methods:
     * the constructor Person(int age, Profession profession, Gender gender, BodyType bodytype, boolean isPregnant).
