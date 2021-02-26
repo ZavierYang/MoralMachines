@@ -212,7 +212,7 @@ Once your program has imported all scenarios from config.csv it should create a 
 We can let the user take over and be the judge. Therefore, you need to build an interactive console program, which presents the user with a number of ethical scenarios. For each scenario the user is asked to make a decision about who should survive. The results are logged to a user file (user.log) but only if the user consents to it.
 
 ### 5.1 Program Setup
-As described in [Section 4.1]((#41-specify-the-configuration-file-as-command-line-argument)), we will use command-line options or so-called flags to initialize the execution of EthicalEngines. Therefore, you should add a few more options as possible command-line arguments. The following program call should invoke the help:
+As described in [Section 4.1](#41-specify-the-configuration-file-as-command-line-argument), we will use command-line options or so-called flags to initialize the execution of EthicalEngines. Therefore, you should add a few more options as possible command-line arguments. The following program call should invoke the help:
 
     $ java EthicalEngine --help
     and
