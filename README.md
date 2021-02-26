@@ -41,6 +41,7 @@ The class further comprises two enumeration types:
 
 Age should be treated as a class invariant for which the following statement always yields true: age >= 0
 
+[Go To Top](#moralmachines)
 ### 1.2 Class Person.java and Animal.java
 This two classes inherite from Character.java.
 1. Person.java: scenarios are inhabited by people who exhibit a number of characteristics. In the scenarios, each person is either considered to be a passenger or a pedestrian. A person can be you. This class represents a human in the scenarios. On top of its parent methods, the class Person must at least include the following public methods:
@@ -70,6 +71,7 @@ This two classes inherite from Character.java.
     * the public method toString() must output a pet’s characteristics. Format:
 
             <species> [is pet]
+[Go To Top](#moralmachines)
 ### 1.3 Class Scenario.java
 This class contains all relevant information about a presented scenario, including the car’s passengers and the pedestrians on the street as well as whether the pedestrians are crossing legally. **Each scenario can have only one instance of Person for which isYou() returns true.** The following public methods must be implemented:
 * the constructor Scenario(Character[] passengers, Character[] pedestrians, boolean isLegalCrossing): you can use **Arrays or ArrayLists** in your class, but you need to make     sure this constructor takes a person array as an argument.
@@ -91,12 +93,18 @@ This class contains all relevant information about a presented scenario, includi
         - <character.toString>
         Pedestrians (<getPedestrianCount)
         - <character.toString>
+[Go To Top](#moralmachines)
 ### 1.4 Class EthicalEngine.java
 This class holds the main method and manages your program execution. It takes care of program parameters (see Section 4) as well as user input (see Section 5). This class also houses the decide(scenario) method, which implements the decision-making algorithm outputting either PEDESTRIANS or PASSENGERS depending on whom to save. The code must choose whom to save for any scenario.
 
 **Decision Algorithm:** Your task is to implement the public static method decide(Scenario scenario) that either returns a value of the Enumeration type Decision, which is either PEDESTRIANS or PASSENGERS. **Your code must choose whom to save for any scenario.** You can consider the characteristics of the characters involved as well as the situation. For instance, you can take any of the characters’ characteristics. 
 
+[Go To Top](#moralmachines)
 ## 2. Class ScenarioGenerator.java
+[Go To Top](#moralmachines)
 ## 3. Class Audit.java
+[Go To Top](#moralmachines)
 ## 4. Import a Configuration File
+[Go To Top](#moralmachines)
 ## 5. Interactive Scenarios
+[Go To Top](#moralmachines)
