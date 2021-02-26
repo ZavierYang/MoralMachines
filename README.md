@@ -3,6 +3,9 @@ The idea of Moral Machines is based on the Trolley Dilemma, a fictional scenario
 
 In this project, you will create an Ethical Engine, a program designed to explore different scenarios, build an algorithm to decide between the life of the car’s passengers vs. the life of the pedestrians, audit your decision-making algorithm through simulations, and allow users of your program to judge the outcomes themselves.
 
+# Importance
+This is a project from a programming course (subject). If you come to watch because of your course (subject) assignment or project, do not just copy and paste this code or just modify the variables name otherwise your score is possible to be penalised.
+
 # Contents
 1. [Core Classes](#1core-classes)
 
@@ -15,6 +18,10 @@ In this project, you will create an Ethical Engine, a program designed to explor
     1.4. [Class EthicalEngine.java](#14-class-ethicalenginejava)
 2. [Class ScenarioGenerator.java](#2-class-scenariogeneratorjava)
 3. [Class Audit.java](#3-class-auditjava)
+
+    3.1 [Store Statistic](#31-store-statistic)
+
+    3.2 [Save Audit Results](#32-save-audit-results)
 4. [Import a Configuration File](#4-import-a-configuration-file)
 
     4.1. [Specify the Configuration File as Command-Line Argument](#41-specify-the-configuration-file-as-command-line-argument)
@@ -103,7 +110,7 @@ This class contains all relevant information about a presented scenario, includi
         - <character.toString>
 [Go To Top](#moralmachines)
 ### 1.4 Class EthicalEngine.java
-This class holds the main method and manages your program execution. It takes care of program parameters (see Section 4) as well as user input (see Section 5). This class also houses the decide(scenario) method, which implements the decision-making algorithm outputting either PEDESTRIANS or PASSENGERS depending on whom to save. The code must choose whom to save for any scenario.
+This class holds the main method and manages your program execution. It takes care of program parameters (see [Section 4](#4-import-a-configuration-file)) as well as user input (see [Section 5](#5-interactive-scenarios)). This class also houses the decide(scenario) method, which implements the decision-making algorithm outputting either PEDESTRIANS or PASSENGERS depending on whom to save. The code must choose whom to save for any scenario.
 
 **Decision Algorithm:** Your task is to implement the public static method decide(Scenario scenario) that either returns a value of the Enumeration type Decision, which is either PEDESTRIANS or PASSENGERS. **Your code must choose whom to save for any scenario.** You can consider the characteristics of the characters involved as well as the situation. For instance, you can take any of the characters’ characteristics. 
 
@@ -152,7 +159,7 @@ Statistic should list a number of factors, including:
 * pets
 * legality (red or green light)
 
-output format(pseudocode):
+output format(pseudocode): If the program is in interactive mode ([Section 5](#5-interactive-scenarios)), the auditType is user otherwise the type is Algorithm.
 
     ======================================
     # <auditType> Audit
@@ -204,4 +211,48 @@ Once your program has imported all scenarios from config.csv it should create a 
 ## 5. Interactive Scenarios
 We can let the user take over and be the judge. Therefore, you need to build an interactive console program, which presents the user with a number of ethical scenarios. For each scenario the user is asked to make a decision about who should survive. The results are logged to a user file (user.log) but only if the user consents to it.
 
+### 5.1 Program Setup
+As described in [Section 4.1]((#41-specify-the-configuration-file-as-command-line-argument)), we will use command-line options or so-called flags to initialize the execution of EthicalEngines. Therefore, you should add a few more options as possible command-line arguments. The following program call should invoke the help:
+
+    $ java EthicalEngine --help
+    and
+    $ java EthicalEngine -h
+The command-line output following the invocation of the help should look like this:
+    
+    EthicalEngine - Final Project
+    Usage: java EthicalEngine [arguments]
+    Arguments:
+    -c or --config Optional: path to config file
+    -h or --help Print Help (this message) and exit
+    -r or --results Optional: path to results log file
+    -i or --interactive Optional: launches interactive mode
+The following command will launch the program with a config file in the interactive mode:
+
+    $ java EthicalEngine -i -c config.csv
+Here is an example of launching the program in the interactive mode with random scenarios:
+
+    $ java EthicalEngine -i
+### 5.2 Program Execution
+You need to extend the EthicalEngine class to manage the user interaction and support the following program flow:
+1. Show Welcome Screen At the start of the program, a welcome message must be shown: your program should read in and display the contents of welcome.ascii to the user
+2. After the welcome message, program should prompt to the user with the following method on the command-line in order to collect user consent for data collection.
+    
+        Do you consent to have your decisions saved to a file? (yes/no)
+    Only if the user confirms (yes), your program should save the user statistic to user.log. If the user selects no your program should function normally but not write any of       the users’ decisions to the file (it should still display the statistic on the command-line though). If the user types in anything other than yes or no, an                       **InvalidInputException** should be thrown and the user should be prompted again:
+    
+        Invalid response. Do you consent to have your decisions saved to a file? (yes/no)
+3.  Once the user consented (or not), the scenario judging begins. Therefore, scenarios are either imported from the config file or (if the config file is not specified)             randomly generated. Make sure to set the audit type to User using the method *setAuditType(String name)*. Scenarios are presented one by one using the *toString()* method       of the *Scenario* instance and printing its outputs to the command-line. Each scenario should be followed by a prompt saying:
+
+        Who should be saved? (passenger(s) [1] or pedestrian(s) [2])
+        Note that input passenger, passengers, or 1 represent passenger. And input pedestrian, pedestrians, or 2 represent pedestrian.
+    After the user made a decision, the next scenario is shown followed by the prompt to judge the scenario. This procedure should repeat until 3 scenarios have been shown and       judged. After the third scenario decision, the result statistic is presented.
+4.  The statistic must be printed to the command-line using the same method and format as described in [Section 3.1](#31-store-statistic). If the user previously consented to the data collection, the statistic is saved (i.e., appended) to the file user.log using the function printToFile(String filepath) of the Audit class. Additionally, the user should be prompted to either continue or quit the program as follows:
+    
+        Would you like to continue? (yes/no)
+    Should the user choose no the program terminates. If the user decides to continue (yes), the next three scenarios should be shown. If the config file does not contain any       more scenarios, the final statistic should be shown followed by the following prompt.
+    
+        That’s all. Press Enter to quit.
 [Go To Top](#moralmachines)
+
+## Source
+University of Melbourne COMP90041 Subject final project
