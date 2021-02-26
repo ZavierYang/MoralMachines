@@ -13,10 +13,18 @@ In this project, you will create an Ethical Engine, a program designed to explor
     1.3. [Class Scenario.java](#13-class-scenariojava)
     
     1.4. [Class EthicalEngine.java](#14-class-ethicalenginejava)
-3. [Class ScenarioGenerator.java](#2-class-scenariogeneratorjava)
-4. [Class Audit.java](#3-class-auditjava)
-5. [Import a Configuration File](#4-import-a-configuration-file)
-6. [Interactive Scenarios](#5-interactive-scenarios)
+2. [Class ScenarioGenerator.java](#2-class-scenariogeneratorjava)
+3. [Class Audit.java](#3-class-auditjava)
+4. [Import a Configuration File](#4-import-a-configuration-file)
+
+    4.1. [](#)
+    
+    4.2. [](#)
+
+    4.3. [](#)
+
+    4.4. [](#)
+5. [Interactive Scenarios](#5-interactive-scenarios)
 
 
 ## 1. Core Classes
@@ -156,8 +164,44 @@ output format(pseudocode):
     average age: <average>
 The list of characteristics must be sorted in **descending order of the survival ratio.** If tie, it is not nessary to order the Alphabet. The average age is calculated across all survivors of class Person (**animals are excluded**). Statistic must not list animals by gender, age, or body type.
 
+**Update Statistic within an Audit:**
+If you run multiple scenarios within a particular audit, make sure to update your statistic rather than overwrite it. For example, you may run an audit subsequently over 10 (audit.run(10)), 50 (audit.run(50)), and 100 (audit.run(100)) scenarios and print an updated statistic after each run to the command-line. The result on the command-line should be three statistic outputs: the first with 10, the second with 60, and the last with 160 runs.
+
+### 3.2 Save Audit Results
+To save the results of your audit to a file, add the public method printToFile(String filepath) to your Audit class. The method prints the results of the toString() method to a target file named results.log. The *filepath* variable is set by the command-line flat **−r or −−results** and includes both the target directory (logs/, in this case) and the filename (results.log). If results.log already exists in the target directory, you should append the new data rather than overwrite the existing file.
+
 [Go To Top](#moralmachines)
 ## 4. Import a Configuration File
+In this task, you need to extend your **EthicalEngine class** to allow it to create scenarios based on data it reads from a configuration file.
+### 4.1 Specify the Configuration File as Command-Line Argument
+In this task, you need to create a command-line option. Command-line options or so-called *flags* specify options that modify the operation of your program. Options follow the program execution command on the command-line, separated by spaces. Options can be specified **in any order**. The following program calls are equivalent and should be supported by your program:
+
+    $ java EthicalEngine --config path/to/config.csv
+    and
+    $ java EthicalEngine -c path/to/config.csv
+The command line argument following the flag –config of -c respectively specifies the filepath where the configuration file (config.csv) is located. Your program should check whether the file is located at the specified location and handle a FileNotFoundException in case the file does not exist. In this case, your program should terminate with the following error message:
+
+    ERROR: could not find config file.
+### 4.2 Parsing the Configuration File
+Your EthicalEngine class needs to be able to read in a config file as depicted in Table 1 and create a Scenario instance for each scenario the file contains. Note that a config file can contain any number of scenarios with any number of passengers and pedestrians. You can assume that all config files follow the same format with the columns ordered as the provided CSV file.
+
+### 4.3 Handle Invalid Data Row
+While reading in the config file line by line your program may encounter three types of exceptions, which your program should be able to handle:
+1. **InvalidDataFormatException**: Appear when there is a invalid number of data fields per row. If the number of values in one row is less than or exceeds 10 values, this exception should be thrown. Program should handle such exceptions by issuing the warning statement **”WARNING: invalid data format in config file in line < linecount >”** to the command-line and skip the respective row then continue reading in the next line.
+
+2. **NumberFormatException**: Appear when there is invalid data type. If the value can not cast into an existing data type (e.g., a character where, an int should be for age), this exception should be thrown. Program should handle such exceptions by issuing the warning statement **”WARNING: invalid number format in config file in line < linecount >”** to the command-line, assign a default value instead, and continue with the next value in that line.
+
+3. **InvalidCharacteristicException**: Appear when there is invalid field values. If program does not accommodate a specific value (e.g., skinny as a bodyType), this exception should be thrown. Program should handle such exceptions by issuing a warning statement **”WARNING: invalid characteristic in config file in line < linecount >”** to the command-line, assign a default value instead, and continue with the next value in that line.
+
+**< linecount > depicts the line number in the config file where the error was found.**
+
+### 4.4 Audit your Algorithm Using the Scenarios from the Config File
+Once your program has imported all scenarios from config.csv it should create a new Audit. Therefore, you need to extend your Audit class by adding two more methods:
+1. the constructor Audit(Scenario[] scenarios): this constructor creates a new instance with a fixed set of scenarios
+2. the public method run(): runs the simulation with the scenarios specified and runs each scenario through the EthicalEngine using its decide(Scenario scenario) method.
+
 [Go To Top](#moralmachines)
 ## 5. Interactive Scenarios
+We can let the user take over and be the judge. Therefore, you need to build an interactive console program, which presents the user with a number of ethical scenarios. For each scenario the user is asked to make a decision about who should survive. The results are logged to a user file (user.log) but only if the user consents to it.
+
 [Go To Top](#moralmachines)
