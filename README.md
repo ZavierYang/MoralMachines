@@ -159,7 +159,7 @@ Statistic should list a number of factors, including:
 * pets
 * legality (red or green light)
 
-output format(pseudocode): If the program is in interactive mode ([Section 5](#5-interactive-scenarios)), the auditType is user otherwise the type is Algorithm.
+output format(pseudocode): If the program is in interactive mode ([Section 5](#5-interactive-scenarios)), the auditType is user otherwise the type is Unspecified.
 
     ======================================
     # <auditType> Audit
