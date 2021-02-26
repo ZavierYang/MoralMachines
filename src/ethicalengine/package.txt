@@ -1,0 +1,6 @@
+This folder put 
+Animal.java
+Character.java
+Person.java
+Scenario.java
+ScenarioGenerator.java
