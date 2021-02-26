@@ -17,13 +17,13 @@ In this project, you will create an Ethical Engine, a program designed to explor
 3. [Class Audit.java](#3-class-auditjava)
 4. [Import a Configuration File](#4-import-a-configuration-file)
 
-    4.1. [](#)
+    4.1. [Specify the Configuration File as Command-Line Argument](#specify-the-configuration-file-as-command-line-argument)
     
-    4.2. [](#)
+    4.2. [Parsing the Configuration File](#parsing-the-configuration-file)
 
-    4.3. [](#)
+    4.3. [Handle Invalid Data Row](#handle-invalid-data-row)
 
-    4.4. [](#)
+    4.4. [Audit your Algorithm Using the Scenarios from the Config File](#audit-your-algorithm-using-the-scenarios-from-the-config-file)
 5. [Interactive Scenarios](#5-interactive-scenarios)
 
 
