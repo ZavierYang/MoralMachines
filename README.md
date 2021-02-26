@@ -6,13 +6,13 @@ In this project, you will create an Ethical Engine, a program designed to explor
 # Contents
 1. [Core Classes](#1core-classes)
 
-    1.1. The Abstract Class Character(#11-the-abstract-class-character)
+    1.1. [The Abstract Class Character](#11-the-abstract-class-character)
    
-    1.2. Class Person.java and Anima.java(#12-class-personjava-and-animaljava)
+    1.2. [Class Person.java and Anima.java](#12-class-personjava-and-animaljava)
    
-    1.3. Class Scenario.java(#13-class-scenariojava)
+    1.3. [Class Scenario.java](#13-class-scenariojava)
     
-    1.4. Class EthicalEngine.java(#14-class-ethicalenginejava)
+    1.4. [Class EthicalEngine.java](#14-class-ethicalenginejava)
 3. [Class ScenarioGenerator.java](#2-class-scenariogeneratorjava)
 4. [Class Audit.java](#3-class-auditjava)
 5. [Import a Configuration File](#4-import-a-configuration-file)
