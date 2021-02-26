@@ -6,20 +6,20 @@ In this project, you will create an Ethical Engine, a program designed to explor
 # Contents
 1. [Core Classes](#1core-classes)
 
-    1.1. The Abstract Class Character
+    1.1. The Abstract Class Character(11-the-abstract-class-character)
    
-    1.2. Class Person and Animal
+    1.2. Class Person.java and Anima.java(12-class-personjava-and-animaljava)
    
-    1.3. Class Scenario
+    1.3. Class Scenario.java(13-class-scenariojava)
     
-    1.4. Class EthicalEngine
-3. [Class ScenarioGenerator](#class-scenariogenerator)
-4. [Class Audit](#class-audit)
-5. [Import a Configuration File](#import-a-configuration-file)
-6. [Interactive Scenarios](#interactive-scenarios)
+    1.4. Class EthicalEngine.java(14-class-ethicalenginejava)
+3. [Class ScenarioGenerator.java](#2-class-scenariogeneratorjava)
+4. [Class Audit.java](#3-class-auditjava)
+5. [Import a Configuration File](#4-import-a-configuration-file)
+6. [Interactive Scenarios](#5-interactive-scenarios)
 
 
-## 1.Core Classes
+## 1. Core Classes
 
 Your program should consist of seven core classes:
 
@@ -34,14 +34,14 @@ Your program should consist of seven core classes:
     welcome.ascii
 **The classes Character, Person, Animal, Scenario, and ScenarioGenerator must be part of the package ethicalengine. The classes Audit and EthicalEngine should not be within a package.**
 
-### The Abstract Class Character
+### 1.1 The Abstract Class Character
 The class further comprises two enumeration types:
 1. Gender must include the types FEMALE and MALE as well as a default option UNKNOWN, but can also include more diverse options if you so choose.
 2. BodyType includes the types AVERAGE, ATHLETIC, and OVERWEIGHT as well as a default option UNSPECIFIED.
 
 Age should be treated as a class invariant for which the following statement always yields true: age >= 0
 
-### Class Person and Animal
+### 1.2 Class Person.java and Animal.java
 This two classes inherite from Character.java.
 1. Person.java: scenarios are inhabited by people who exhibit a number of characteristics. In the scenarios, each person is either considered to be a passenger or a pedestrian. A person can be you. This class represents a human in the scenarios. On top of its parent methods, the class Person must at least include the following public methods:
     * the constructor Person(int age, Profession profession, Gender gender, BodyType bodytype, boolean isPregnant).
@@ -70,7 +70,7 @@ This two classes inherite from Character.java.
     * the public method toString() must output a pet’s characteristics. Format:
 
             <species> [is pet]
-### Class Scenario
+### 1.3 Class Scenario.java
 This class contains all relevant information about a presented scenario, including the car’s passengers and the pedestrians on the street as well as whether the pedestrians are crossing legally. **Each scenario can have only one instance of Person for which isYou() returns true.** The following public methods must be implemented:
 * the constructor Scenario(Character[] passengers, Character[] pedestrians, boolean isLegalCrossing): you can use **Arrays or ArrayLists** in your class, but you need to make     sure this constructor takes a person array as an argument.
 * the public method hasYouInCar(): returns a boolean indicating whether you (the user) is in the car.
@@ -91,12 +91,12 @@ This class contains all relevant information about a presented scenario, includi
         - <character.toString>
         Pedestrians (<getPedestrianCount)
         - <character.toString>
-### Class EthicalEngine
+### 1.4 Class EthicalEngine.java
 This class holds the main method and manages your program execution. It takes care of program parameters (see Section 4) as well as user input (see Section 5). This class also houses the decide(scenario) method, which implements the decision-making algorithm outputting either PEDESTRIANS or PASSENGERS depending on whom to save. The code must choose whom to save for any scenario.
 
 **Decision Algorithm:** Your task is to implement the public static method decide(Scenario scenario) that either returns a value of the Enumeration type Decision, which is either PEDESTRIANS or PASSENGERS. **Your code must choose whom to save for any scenario.** You can consider the characteristics of the characters involved as well as the situation. For instance, you can take any of the characters’ characteristics. 
 
-## Class ScenarioGenerator
-## Class Audit
-## Import a Configuration File
-## Interactive Scenarios
+## 2. Class ScenarioGenerator.java
+## 3. Class Audit.java
+## 4. Import a Configuration File
+## 5. Interactive Scenarios
