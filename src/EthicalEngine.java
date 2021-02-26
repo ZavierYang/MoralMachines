@@ -1,7 +1,5 @@
 /*********************************************************************
- *  Author:       ChingYuan Yang                                    *
- *  StudentID:    1070917                                            *
- *  Username:     chingyuany                                         *
+ *  Author:       Zavier Yang                                        *
  *                                                                   *
  *  Description:  This algorithm is created for Trolley Dilemma      *
  *                                                                   *
