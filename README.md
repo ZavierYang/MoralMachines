@@ -4,7 +4,7 @@ The idea of Moral Machines is based on the Trolley Dilemma, a fictional scenario
 In this project, you will create an Ethical Engine, a program designed to explore different scenarios, build an algorithm to decide between the life of the car’s passengers vs. the life of the pedestrians, audit your decision-making algorithm through simulations, and allow users of your program to judge the outcomes themselves.
 
 # Importance
-This is a project from a programming course (subject). If you come to watch because of your course (subject) assignment or project, do not just copy and paste this code or just modify the variables name otherwise your score is possible to be penalised.
+This is a project from a programming course (subject). **If you come to watch because of your course (subject) assignment or project, DO NOT just copy and paste this code or just modify the variables name otherwise your score is possible to be penalised.**
 
 # Contents
 1. [Core Classes](#1core-classes)
